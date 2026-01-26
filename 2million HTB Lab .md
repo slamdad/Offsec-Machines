@@ -309,3 +309,5 @@ cat /root/root.txt
 * Admin APIs must enforce authorization server-side
 * `.env` files must never be web-accessible
 * Kernel patching is **not optional**
+
+
