@@ -1,0 +1,166 @@
+📄 Writeup – PW Crack 4 (picoCTF)
+
+⸻
+
+🧠 Challenge Overview
+
+You are given:
+	•	An encrypted flag (level4.flag.txt.enc)
+	•	A hashed password (level4.hash.bin)
+	•	A Python script (level4.py)
+	•	A list of 100 possible passwords
+
+Goal:
+👉 Find the correct password and decrypt the flag.
+
+⸻
+
+🔍 Analysis
+
+1. Understanding the Code
+
+Key parts:
+
+def hash_pw(pw_str):
+    m = hashlib.md5()
+    m.update(pw_str.encode())
+    return m.digest()
+
+👉 Password is hashed using MD5 (raw binary digest)
+
+⸻
+
+
+if( user_pw_hash == correct_pw_hash ):
+
+👉 The correct password is the one whose MD5 digest matches level4.hash.bin
+
+⸻
+
+
+decryption = str_xor(flag_enc.decode(), user_pw)
+
+👉 Once password is correct:
+	•	It decrypts flag using XOR with password
+
+⸻
+
+🎯 Strategy
+
+Instead of guessing manually:
+	•	Try all 100 passwords
+	•	Hash each
+	•	Compare with stored hash
+
+👉 This is a dictionary attack
+
+⸻
+
+⚙️ Exploit (Brute Force Script)
+
+Script used:
+
+import hashlib
+
+correct_hash = open('level4.hash.bin','rb').read()
+
+pos_pw_list = ["8c86", "7692", "a519", "3e61", "7dd6", "8919", "aaea", "f34b", "d9a2", "39f7", "626b", "dc78", "2a98", "7a85", "cd15", "80fa", "8571", "2f8a", "2ca6", "7e6b", "9c52", "7423", "a42c", "7da0", "95ab", "7de8", "6537", "ba1e", "4fd4", "20a0", "8a28", "2801", "2c9a", "4eb1", "22a5", "c07b", "1f39", "72bd", "97e9", "affc", "4e41", "d039", "5d30", "d13f", "c264", "c8be", "2221", "37ea", "ca5f", "fa6b", "5ada", "607a", "e469", "5681", "e0a4", "60aa", "d8f8", "8f35", "9474", "be73", "ef80", "ea43", "9f9e", "77d7", "d766", "55a0", "dc2d", "a970", "df5d", "e747", "dc69", "cc89", "e59a", "4f68", "14ff", "7928", "36b9", "eac6", "5c87", "da48", "5c1d", "9f63", "8b30", "5534", "2434", "4a82", "d72c", "9b6b", "73c5", "1bcf", "c739", "6c31", "e138", "9e77", "ace1", "2ede", "32e0", "3694", "fc92", "a7e2"]
+
+for pw in pos_pw_list:
+    if hashlib.md5(pw.encode()).digest() == correct_hash:
+        print("Password:", pw)
+
+
+⸻
+
+✅ Result
+
+Password: 9f63
+
+
+⸻
+
+🚀 Final Step
+
+Run the original script:
+
+python3 level4.py
+
+Input:
+
+9f63
+
+
+⸻
+
+🏁 Flag
+
+picoCTF{fl45h_5pr1ng1ng_d770d48c}
+
+
+⸻
+
+🧠 Explanation (What You Actually Did)
+
+1. Identified the hashing method
+	•	MD5 used
+	•	Compared raw binary digest (not hex)
+
+⸻
+
+2. Recognized limited password space
+	•	Only 100 possible passwords
+	•	Perfect for brute-force
+
+⸻
+
+3. Built a brute-force script
+
+Loop:
+
+password → MD5 → compare → match
+
+
+⸻
+
+4. Found correct password
+	•	9f63
+
+⸻
+
+5. Used original program for decryption
+	•	XOR-based decryption automatically handled
+
+⸻
+
+🔐 Key Cybersecurity Concepts
+
+✔ Hash Cracking
+	•	Using known inputs to match hashes
+
+⸻
+
+✔ Dictionary Attack
+	•	Trying a predefined list instead of random guessing
+
+⸻
+
+✔ MD5 Weakness
+	•	Fast → easy to brute-force
+	•	Not secure for passwords
+
+⸻
+
+✔ XOR Encryption
+	•	Simple reversible encryption
+	•	Key reused → weak
+
+⸻
+
+⚡ Takeaways
+
+If password space is small → brute force always wins
+
+Hash alone ≠ secure if weak algorithm + small keyspace
+
+
