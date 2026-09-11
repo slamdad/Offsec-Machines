@@ -1,4 +1,4 @@
-collection of my offensive security writeups — box walkthroughs, CTF challenges, and course exercises covering enumeration, exploitation, and privilege escalation.
+Collection of my offensive security writeups — box walkthroughs, CTF challenges, and course exercises covering enumeration, exploitation, and privilege escalation.
 
 🎯 Purpose
 
