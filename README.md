@@ -1,102 +1,31 @@
-:::writing{variant=“standard” id=“59302”}
+collection of my offensive security writeups — box walkthroughs, CTF challenges, and course exercises covering enumeration, exploitation, and privilege escalation.
 
-🛡️ Offensive Security Lab
+🎯 Purpose
 
-A structured repository documenting hands-on practice in penetration testing, vulnerability research, and CTF challenges across multiple platforms.
+This repo tracks my hands-on practice as I work toward Security analyst → penetration testing / red teaming roles. Each writeup documents the full process: recon, vulnerability identification, exploitation, and post-exploitation, along with the reasoning behind each step.
 
-⸻
+📂 Contents
 
-📌 Overview
+Writeups are pulled from:
 
-This repository serves as a centralized knowledge base of real-world attack simulations and security assessments performed in controlled environments.
+Hack The Box (HTB) — retired machine walkthroughs
+TryHackMe (THM) — room walkthroughs across various difficulty levels
+picoCTF — challenge-specific writeups (crypto, pwn, web, misc)
+C-Pent coursework — structured offensive security course exercises (PowerShell, Metasploit, Windows exploitation & privilege escalation, OSINT, scripting)
+🗂️ Structure
 
-The focus is on:
-	•	Practical exploitation
-	•	Methodology development
-	•	Consistent documentation of findings
+Each file is a standalone Markdown writeup named after the machine/room/challenge, following this rough format:
 
-⸻
+Overview — challenge description and objective
+Analysis — recon findings, code/service review
+Exploit — the attack path and any scripts used
+Result — flag or proof of compromise
+Explanation — what was actually done and why
+Key Concepts — the underlying security concepts the exercise reinforced
+🧠 Skills Covered
 
-⚔️ Platforms
-	•	Hack The Box (HTB)
-	•	TryHackMe (THM)
-	•	VulnHub
-	•	PicoCTF
-	•	Miscellaneous CTF challenges
+Enumeration · Web exploitation · Privilege escalation (Linux & Windows) · Password/hash cracking · Metasploit · Active Directory basics · Scripting for offense · OSINT
 
-⸻
+📌 Related
 
-🧩 Repository Structure
-
-📁 HTB/
-   ├── Easy/
-   ├── Medium/
-   └── Hard/
-
-📁 THM/
-   ├── Paths/
-   └── Rooms/
-
-📁 VulnHub/
-   └── Machines/
-
-📁 CTF/
-   ├── Web/
-   ├── Crypto/
-   ├── Forensics/
-   └── Reverse/
-
-
-⸻
-
-🔍 Methodology
-
-Each writeup follows a consistent approach:
-	1.	Reconnaissance & Enumeration
-	2.	Attack Surface Analysis
-	3.	Exploitation
-	4.	Privilege Escalation
-	5.	Post-Exploitation
-	6.	Key Takeaways
-
-⸻
-
-📊 Focus Areas
-	•	Web Application Security
-	•	Linux & Windows Privilege Escalation
-	•	Network Penetration Testing
-	•	CTF Problem Solving
-	•	Basic Reverse Engineering
-
-⸻
-
-📈 Progress
-
-Platform	Status
-Hack The Box	Active
-TryHackMe	Active
-VulnHub	Active
-PicoCTF	Active
-
-
-⸻
-
-⚠️ Disclaimer
-
-All content in this repository is intended for educational purposes only.
-Activities are performed on authorized platforms and intentionally vulnerable systems.
-
-⸻
-
-🧠 Continuous Learning
-
-This repository is actively maintained and reflects ongoing improvement in offensive security skills and practical cybersecurity knowledge.
-
-⸻
-
-:::
-
-
-	•	Add badges (HTB rank, THM streak, etc.)
-	•	Add screenshots of machines solved
-	•	Add a “Highlighted Writeups” section (very important for recruiters)
+Defensive/blue-team writeups (log analysis, DFIR, SOC-style investigations) are tracked separately in SOC-Machines.
